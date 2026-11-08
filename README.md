@@ -68,6 +68,18 @@ Uses Gold tables as sources to build SQL-based analytical models, with tests suc
 | Gold      | Timestamp watermark + Delta MERGE |
 | Analytics | dbt models and tests              |
 
+## Pipeline Execution
+
+### Bronze – Data Ingestion
+Incremental ingestion of source CSV files into Delta tables using Databricks Auto Loader.
+
+![Bronze Ingestion Job](images/bronze-ingestion-job.png)
+
+### Silver – Data Transformation
+Data cleaning, validation and Change Data Capture using a Databricks Lakeflow Spark Declarative Pipeline.
+
+![Silver DLT Pipeline](images/silver-dlt-pipeline.png)
+
 ## Repository Structure
 
 ```
