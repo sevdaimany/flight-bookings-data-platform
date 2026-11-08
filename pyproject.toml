@@ -1,0 +1,20 @@
+[project]
+name = "dbt-databricks-flights"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "sevda", email = "imanysevda@gmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "dbt-core>=1.12.6",
+    "dbt-databricks>=1.13.0",
+]
+
+[project.scripts]
+dbt-databricks-flights = "dbt_databricks_flights:main"
+
+[build-system]
+requires = ["uv_build>=0.13.5,<0.14.0"]
+build-backend = "uv_build"
