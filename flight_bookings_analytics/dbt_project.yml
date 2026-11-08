@@ -32,5 +32,6 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   flight_bookings_analytics:
     # Config indicated by + and applies to all files under models/example/
-    example:
+    analytics:
       +materialized: view
+      +schema: analytics

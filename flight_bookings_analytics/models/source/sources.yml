@@ -1,0 +1,58 @@
+version: 2
+
+sources:
+  - name: gold
+    catalog: workspace
+    schema: gold
+
+    tables:
+      - name: dim_passengers
+        columns:
+          - name: dim_passengers_key
+            data_tests:
+              - not_null
+              - unique
+
+      - name: dim_flights
+        columns:
+          - name: dim_flights_key
+            data_tests:
+              - not_null
+              - unique
+
+      - name: dim_airports
+        columns:
+          - name: dim_airports_key
+            data_tests:
+              - not_null
+              - unique
+
+      - name: fact_bookings
+        columns:
+          - name: dim_passengers_key
+            data_tests:
+              - not_null
+              - relationships:
+                  arguments:
+                    to: source('gold', 'dim_passengers')
+                    field: dim_passengers_key
+
+          - name: dim_flights_key
+            data_tests:
+              - not_null
+              - relationships:
+                  arguments:
+                    to: source('gold', 'dim_flights')
+                    field: dim_flights_key
+
+          - name: dim_airports_key
+            data_tests:
+              - not_null
+              - relationships:
+                  arguments:
+                    to: source('gold', 'dim_airports')
+                    field: dim_airports_key
+
+          - name: amount
+            data_tests:
+              - not_null
